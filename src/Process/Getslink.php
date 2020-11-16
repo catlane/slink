@@ -4,6 +4,7 @@ namespace Slink\Process;
 use Slink\Component\Single;
 use Slink\Config;
 use Slink\Component\Conver;
+use Slink\Exceptions\SLinkException;
 
 /**
  * 获取slink处理类
@@ -18,11 +19,15 @@ class Getslink
     //短链长度
     private $slinkLen = 7;
 
+
+    /**
+     * @throws SLinkException
+     */
     public function __construct()
     {
         $this->slinkLen = Config::getInstance()->getSlinkLen() ?? $this->slinkLen;
         if ($this->slinkLen < 4) {
-            die('Slink length setting is too short');
+            throw new SLinkException('Slink length setting is too short');
         }
     }
 

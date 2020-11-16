@@ -63,6 +63,7 @@ class App
      * @param string $origin_link
      *
      * @return string|null
+     * @throws SLinkException
      */
     public function getSlink(string $origin_link) : ?string
     {
@@ -72,10 +73,10 @@ class App
         }
     }
 
-    //获取原始链接
 
 
     /**
+     * 获取原始链接
      * @param string $short_link
      *
      * @return string

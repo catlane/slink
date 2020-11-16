@@ -10,6 +10,7 @@ namespace Slink\Process;
 use Slink\Component\Single;
 use Slink\Cache\Redis;
 use Slink\Component\Conver;
+use Slink\Exceptions\SLinkException;
 
 class Slink
 {
@@ -25,13 +26,16 @@ class Slink
     public function __construct(?string $origin_link)
     {
         if (empty($origin_link)) {
-            die('please set originlink');
+            throw new SLinkException('please set originlink');
         }
         $this->originLink = $origin_link;
     }
 
+
     /**
      * 开始流程
+     *
+     * @throws SLinkException
      */
 
     public function start()
@@ -64,7 +68,11 @@ class Slink
         return false;
     }
 
-    //生成短链
+
+    /**
+     * 生成短链
+     * @throws SLinkException
+     */
     private function getSlink() : void
     {
         $incr_id = Redis::getInstance()->getId();
@@ -82,4 +90,3 @@ class Slink
     }
 
 }
-?>

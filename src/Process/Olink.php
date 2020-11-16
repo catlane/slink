@@ -38,8 +38,11 @@ class Olink
         $this->shortLink = $short_link;
     }
 
+
     /**
      * 开始流程
+     *
+     * @throws SLinkException
      */
     public function start()
     {
