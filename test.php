@@ -1,11 +1,12 @@
 <?php
-require 'vendor/autoload.php';
+require '../../../vendor/autoload.php';
 //生成短连接测试
 Slink\App::getInstance()->setCommonRedis([
     'hostname' => '127.0.0.1',
     'password' => '',
     'port' => '6379',
-    'timeout' => '5'
+    'timeout' => '5',
+    'db'=> 5
 ]);
 
 Slink\App::getInstance()->setRedisPrefix('slink:test');

@@ -27,9 +27,6 @@ class Slink
         if (empty($origin_link)) {
             die('please set originlink');
         }
-        info('走到了slink', [
-            's' => $origin_link
-        ]);
         $this->originLink = $origin_link;
     }
 
