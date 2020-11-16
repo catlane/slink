@@ -1,0 +1,20 @@
+{
+  "name": "catlane/slink",
+  "description": "Generate short url | PHP实现轻量稳定且易用短链接短网址服务",
+  "license": "MIT",
+  "keywords": ["shorturl slink php"],
+  "authors": [
+    {
+      "name": "catlane",
+      "email": "catlane@foxmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Slink\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.1.0"
+  }
+}
