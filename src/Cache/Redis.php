@@ -83,10 +83,10 @@ class Redis
         if (extension_loaded('redis')) {
             $this->handler[$mode] = new \Redis;
             $this->handler[$mode]->connect($connect['hostname'], $connect['port'] ?? 6379, $timeout);
-            $this->handler[$mode]->select($connect['db'] ?? 0);
             if (isset($connect['password']) && $connect['password'] != '') {
                 $this->handler[$mode]->auth($connect['password']);
             }
+            $this->handler[$mode]->select($connect['db'] ?? 0);
         } else {
             throw new \BadFunctionCallException('not support: redis');
         }
